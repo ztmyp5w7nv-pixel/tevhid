@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#170f12" />
+    <title>Mevlid-i Şerif | Tevhid Bahri</title>
+    <link rel="preload" href="./siir2.mp3" as="audio" type="audio/mpeg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="is-locked">
+    <div class="backdrop" aria-hidden="true">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <div class="glow glow-c"></div>
+      <div class="grain"></div>
+    </div>
+
+    <button class="start-screen" id="startScreen" type="button">
+      <span class="start-screen__frame"></span>
+      <span class="start-screen__eyebrow">Bilim Şenliği Sunumu</span>
+      <strong class="start-screen__title">Mevlid-i Şerif<br />Tevhid Bahri</strong>
+      <span class="start-screen__meta">08:54</span>
+      <span class="start-screen__hint">Şiiri başlatmak için ekrana dokun</span>
+      <span class="start-screen__note">
+        Mobil tarayıcılar sesli otomatik başlatmayı engellediği için ilk dokunuş gerekiyor.
+      </span>
+    </button>
+
+    <audio id="poemAudio" src="./siir2.mp3" preload="auto" loop playsinline></audio>
+
+    <main class="app">
+      <section class="hero">
+        <div class="hero__topline">
+          <span class="pill">Mevlid-i Şerif</span>
+          <span class="pill">Tevhid Bahri</span>
+        </div>
+
+        <div class="hero__copy">
+          <p class="eyebrow">Manevi bir ses yolculuğu</p>
+          <h1>Mevlid-i Şerif<br />Tevhid Bahri</h1>
+          <p class="intro">
+            Bu kayıt tek dokunuşla başlar, döngüde devam eder ve kıtalar okundukça ritimle birlikte
+            ışıldar.
+          </p>
+        </div>
+
+        <section class="player-card" aria-label="Şiir oynatıcısı">
+          <div class="player-card__halo"></div>
+          <div class="player-card__header">
+            <span class="player-card__label">Canlı akış</span>
+            <span class="player-card__status" id="playState">Başlatılmadı</span>
+          </div>
+
+          <div class="player-card__core">
+            <div class="orb">
+              <svg class="progress-ring" viewBox="0 0 180 180" aria-hidden="true">
+                <circle class="progress-ring__track" cx="90" cy="90" r="74"></circle>
+                <circle class="progress-ring__value" cx="90" cy="90" r="74"></circle>
+              </svg>
+              <div class="orb__center">
+                <span class="orb__label">Süre</span>
+                <strong id="currentTime">00:00</strong>
+                <span id="totalTime">08:54</span>
+              </div>
+            </div>
+
+            <div class="equalizer" id="equalizer" aria-hidden="true"></div>
+          </div>
+
+          <div class="controls">
+            <button class="control-button" id="soundToggle" type="button">Sesi Kapat</button>
+            <button class="control-button control-button--ghost" id="restartButton" type="button">
+              Baştan Sar
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="lyrics">
+        <div class="section-title">
+          <p class="eyebrow">Şiirin sözleri</p>
+          <h2>Her bölüm ses akışında sırası geldikçe öne çıkıyor</h2>
+        </div>
+
+        <div class="verses" id="verses">
+          <article class="verse-card is-active" data-start="0" data-end="52.18" style="--delay: 0s;">
+            <span class="verse-card__index">I</span>
+            <p>Seyyidi kainât, Hazret-i Fahr-i Âlem</p>
+            <p>Muhammed Mustafâ râ Salevât</p>
+            <p>Allah âdın zikredelim evvelâ</p>
+            <p>Vâcib oldur cümle işde her kulâ</p>
+          </article>
+
+          <article class="verse-card" data-start="52.18" data-end="104.36" style="--delay: 0.6s;">
+            <span class="verse-card__index">II</span>
+            <p>Allah âdın her kim ol evvel anâ</p>
+            <p>Her işi âsân ider Allah anâ</p>
+            <p>Allah âdı olsa her işin önü</p>
+            <p>Hergiz ebter olmaya ânın sonu</p>
+          </article>
+
+          <article class="verse-card" data-start="104.36" data-end="156.54" style="--delay: 1.2s;">
+            <span class="verse-card__index">III</span>
+            <p>Her nefesde Allah âdın di müdâm</p>
+            <p>Allah âdıyle olur her iş tamâm</p>
+            <p>Bir kez Allah dese aşk ile lisân</p>
+            <p>Dökülür cümle günah misl-i hazân</p>
+          </article>
+
+          <article class="verse-card" data-start="156.54" data-end="208.72" style="--delay: 1.8s;">
+            <span class="verse-card__index">IV</span>
+            <p>İsm-i pâkin pâk olur zikr eyleyen</p>
+            <p>Her murâda erişür Allah diyen</p>
+            <p>Aşk ile gel imdi Allah diyelim</p>
+            <p>Dert ile göz yaş ile âh îdelim</p>
+          </article>
+
+          <article class="verse-card" data-start="208.72" data-end="260.91" style="--delay: 2.4s;">
+            <span class="verse-card__index">V</span>
+            <p>Ola kim rahmet kıla ol pâdişah</p>
+            <p>Ol kerîm-ü ol rahîm-ü ol ilâh</p>
+            <p>Birdir ol, birliğine şek yokdürür</p>
+            <p>Gerçi yanlış söyleyenler çokdürür</p>
+          </article>
+
+          <article class="verse-card" data-start="260.91" data-end="313.09" style="--delay: 3s;">
+            <span class="verse-card__index">VI</span>
+            <p>Cümle-âlem yoğ iken ol var idi</p>
+            <p>Yaradılmışdan ganî cebbâr idi</p>
+            <p>Vâr iken ol, yok idi ins-ü melek</p>
+            <p>Arş-ü ferş-ü ay-ü gün hem nüh felek</p>
+          </article>
+
+          <article class="verse-card" data-start="313.09" data-end="365.27" style="--delay: 3.6s;">
+            <span class="verse-card__index">VII</span>
+            <p>Sun' ile bunlârı ol, vâr eyledi</p>
+            <p>Birliğine cümle ikrar eyledi</p>
+            <p>Kudretin izhâr edüp hem ol celîl</p>
+            <p>Birliğine bunları kıldı delîl</p>
+          </article>
+
+          <article class="verse-card" data-start="365.27" data-end="417.45" style="--delay: 4.2s;">
+            <span class="verse-card__index">VIII</span>
+            <p>"Ol !" dedi bir kerre vâr oldu cihân</p>
+            <p>"Olma !" derse, mahv olur ol dem hemân</p>
+            <p>Pes Muhammeddir bur varliğa sebeb</p>
+            <p>Sıdk ile ânın rızasın kıl taleb</p>
+          </article>
+
+          <article class="verse-card" data-start="417.45" data-end="469.63" style="--delay: 4.8s;">
+            <span class="verse-card__index">IX</span>
+            <p>Ey azizler, işte başlarız söze</p>
+            <p>Bir vasıyyet kılarız illâ size</p>
+            <p>Ol vasıyyet ki direm her kim tuta</p>
+            <p>Misk gibi kokûsu canlardâ tüte</p>
+          </article>
+
+          <article class="verse-card" data-start="469.63" data-end="534.86" style="--delay: 5.4s;">
+            <span class="verse-card__index">X</span>
+            <p>Hak-Teâlâ rahmet eyleye anâ</p>
+            <p>Kim beni ol bir dua ile anâ</p>
+            <p>Her kim ki diler bu duada buluna</p>
+            <p>Fâtiha ihsân ede ben kûluna</p>
+            <p>El-Fâtiha</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
